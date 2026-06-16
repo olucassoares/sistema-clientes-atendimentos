@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sistema de Clientes e Atendimentos</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section id="loginView" class="login-view">
+        <div class="login-panel">
+          <div>
+            <p class="eyebrow">Portfolio Full Stack</p>
+            <h1>Sistema de Clientes e Atendimentos</h1>
+            <p class="muted">Entre com o usuario demo para acessar o painel.</p>
+          </div>
+          <form id="loginForm" class="form-grid">
+            <label>
+              E-mail
+              <input name="email" type="email" value="admin@demo.com" required>
+            </label>
+            <label>
+              Senha
+              <input name="password" type="password" value="admin123" required>
+            </label>
+            <button class="primary-button" type="submit">Entrar</button>
+            <p id="loginMessage" class="message"></p>
+          </form>
+        </div>
+      </section>
+
+      <section id="dashboardView" class="dashboard-view hidden">
+        <aside class="sidebar">
+          <div>
+            <p class="eyebrow">Lucas Soares</p>
+            <h2>Controle Empresarial</h2>
+          </div>
+          <nav>
+            <button class="nav-button active" data-section="overview">Painel</button>
+            <button class="nav-button" data-section="clients">Clientes</button>
+            <button class="nav-button" data-section="tickets">Atendimentos</button>
+          </nav>
+          <button id="logoutButton" class="ghost-button">Sair</button>
+        </aside>
+
+        <section class="content">
+          <header class="topbar">
+            <div>
+              <p class="eyebrow">Full stack com dados e seguranca</p>
+              <h1>Clientes e Atendimentos</h1>
+            </div>
+            <span id="userBadge" class="user-badge"></span>
+          </header>
+
+          <section id="overview" class="page-section">
+            <div class="metrics-grid">
+              <article class="metric-card">
+                <span>Total de clientes</span>
+                <strong id="metricClients">0</strong>
+              </article>
+              <article class="metric-card">
+                <span>Clientes ativos</span>
+                <strong id="metricActiveClients">0</strong>
+              </article>
+              <article class="metric-card">
+                <span>Atendimentos abertos</span>
+                <strong id="metricOpenTickets">0</strong>
+              </article>
+              <article class="metric-card alert">
+                <span>Prioridade alta</span>
+                <strong id="metricHighPriority">0</strong>
+              </article>
+            </div>
+
+            <div class="split-layout">
+              <article class="panel">
+                <div class="panel-heading">
+                  <h2>Status dos atendimentos</h2>
+                </div>
+                <div id="statusChart" class="bar-list"></div>
+              </article>
+              <article class="panel">
+                <div class="panel-heading">
+                  <h2>Boas praticas aplicadas</h2>
+                </div>
+                <ul class="check-list">
+                  <li>Senha armazenada com hash PBKDF2</li>
+                  <li>Sessao com cookie HttpOnly</li>
+                  <li>Validacao de campos obrigatorios</li>
+                  <li>Controle basico de acesso nas rotas</li>
+                </ul>
+              </article>
+            </div>
+          </section>
+
+          <section id="clients" class="page-section hidden">
+            <div class="panel">
+              <div class="panel-heading">
+                <h2>Novo cliente</h2>
+              </div>
+              <form id="clientForm" class="form-grid form-inline">
+                <input type="hidden" name="id">
+                <label>Nome<input name="name" required></label>
+                <label>E-mail<input name="email" type="email" required></label>
+                <label>Telefone<input name="phone"></label>
+                <label>Segmento<input name="segment" required></label>
+                <label>Status
+                  <select name="status">
+                    <option>Ativo</option>
+                    <option>Em acompanhamento</option>
+                    <option>Inativo</option>
+                  </select>
+                </label>
+                <button class="primary-button" type="submit">Salvar cliente</button>
+              </form>
+            </div>
+            <div class="panel">
+              <div class="panel-heading">
+                <h2>Clientes cadastrados</h2>
+                <input id="clientSearch" class="search-input" placeholder="Buscar cliente">
+              </div>
+              <div id="clientsTable" class="table-wrap"></div>
+            </div>
+          </section>
+
+          <section id="tickets" class="page-section hidden">
+            <div class="panel">
+              <div class="panel-heading">
+                <h2>Novo atendimento</h2>
+              </div>
+              <form id="ticketForm" class="form-grid form-inline">
+                <input type="hidden" name="id">
+                <label>Cliente<select name="clientId" required></select></label>
+                <label>Titulo<input name="title" required></label>
+                <label>Prioridade
+                  <select name="priority">
+                    <option>Baixa</option>
+                    <option>Media</option>
+                    <option>Alta</option>
+                  </select>
+                </label>
+                <label>Status
+                  <select name="status">
+                    <option>Aberto</option>
+                    <option>Em andamento</option>
+                    <option>Concluido</option>
+                  </select>
+                </label>
+                <label class="wide">Descricao<input name="description"></label>
+                <button class="primary-button" type="submit">Salvar atendimento</button>
+              </form>
+            </div>
+            <div class="panel">
+              <div class="panel-heading">
+                <h2>Atendimentos</h2>
+              </div>
+              <div id="ticketsTable" class="table-wrap"></div>
+            </div>
+          </section>
+        </section>
+      </section>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+</html>

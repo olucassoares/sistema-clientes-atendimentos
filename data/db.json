@@ -1,0 +1,70 @@
+{
+  "users": [
+    {
+      "id": "usr_1",
+      "name": "Lucas Soares",
+      "email": "admin@demo.com",
+      "passwordHash": "70154b507c4d2438ed776836862f82fe:f5ad2808f2092d65c951dfbe6d1f54b09174a4b8367890accf3b85fb008b797379685e9499d99933a73e8a06a376d1c34ac63aedc63cf80afa750dcea5a581f7",
+      "role": "admin",
+      "createdAt": "2026-06-16T22:48:14.267Z"
+    }
+  ],
+  "clients": [
+    {
+      "id": "cli_1001",
+      "name": "Norte Comercio LTDA",
+      "email": "financeiro@nortecommerce.com",
+      "phone": "(41) 99991-1212",
+      "segment": "Comercio",
+      "status": "Ativo",
+      "createdAt": "2026-06-01T10:00:00.000Z"
+    },
+    {
+      "id": "cli_1002",
+      "name": "Alfa Servicos Empresariais",
+      "email": "contato@alfaservicos.com",
+      "phone": "(41) 98888-4433",
+      "segment": "Servicos",
+      "status": "Ativo",
+      "createdAt": "2026-06-04T14:30:00.000Z"
+    },
+    {
+      "id": "cli_1003",
+      "name": "Mercado Central",
+      "email": "gestao@mercadocentral.com",
+      "phone": "(41) 97777-3000",
+      "segment": "Varejo",
+      "status": "Em acompanhamento",
+      "createdAt": "2026-06-08T09:15:00.000Z"
+    }
+  ],
+  "tickets": [
+    {
+      "id": "att_2001",
+      "clientId": "cli_1001",
+      "title": "Conferencia de dados cadastrais",
+      "priority": "Media",
+      "status": "Concluido",
+      "description": "Validacao de informacoes para atualizacao do cadastro.",
+      "createdAt": "2026-06-10T12:00:00.000Z"
+    },
+    {
+      "id": "att_2002",
+      "clientId": "cli_1002",
+      "title": "Ajuste de acesso ao sistema",
+      "priority": "Alta",
+      "status": "Aberto",
+      "description": "Cliente relatou dificuldade para acessar o painel.",
+      "createdAt": "2026-06-11T16:40:00.000Z"
+    },
+    {
+      "id": "att_2003",
+      "clientId": "cli_1003",
+      "title": "Relatorio mensal de operacoes",
+      "priority": "Baixa",
+      "status": "Em andamento",
+      "description": "Organizar dados para conferencia de indicadores.",
+      "createdAt": "2026-06-13T08:25:00.000Z"
+    }
+  ]
+}
