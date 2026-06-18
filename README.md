@@ -1,5 +1,7 @@
 # Sistema de Clientes e Atendimentos
 
+![Preview do Sistema de Clientes e Atendimentos](docs/preview.png)
+
 Projeto desenvolvido por Lucas Soares como parte da minha transicao para a area de tecnologia, unindo minha experiencia com sistemas, dados operacionais, processos empresariais e minha formacao em Analise e Desenvolvimento de Sistemas.
 
 A ideia foi criar um sistema simples, mas com cara de rotina real: cadastro de clientes, registro de atendimentos, indicadores e boas praticas basicas de seguranca.
