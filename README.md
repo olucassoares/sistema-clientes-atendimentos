@@ -38,7 +38,7 @@ O objetivo foi desenvolver uma aplicação funcional para praticar desenvolvimen
 - Node.js
 - HTML5
 - CSS3
-- API HTTP
+- API REST
 - Persistência de dados em JSON
 - Git e GitHub
 
