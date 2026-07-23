@@ -1,48 +1,107 @@
 # Sistema de Clientes e Atendimentos
 
+Aplicação web full stack desenvolvida para gerenciar clientes e acompanhar atendimentos em um ambiente empresarial.
+
+O sistema possui autenticação, cadastro de clientes, histórico de atendimentos, filtros e dashboard de indicadores.
+
+[Ver demonstração online](https://sistema-clientes-atendimentos.onrender.com)
+
 ![Preview do Sistema de Clientes e Atendimentos](docs/preview.png)
 
-Projeto desenvolvido por Lucas Soares como parte da minha transicao para a area de tecnologia, unindo minha experiencia com sistemas, dados operacionais, processos empresariais e minha formacao em Analise e Desenvolvimento de Sistemas.
+---
 
-A ideia foi criar um sistema simples, mas com cara de rotina real: cadastro de clientes, registro de atendimentos, indicadores e boas praticas basicas de seguranca.
+## Sobre o projeto
+
+Este projeto foi inspirado em rotinas empresariais com as quais tive contato profissionalmente, como atendimento ao cliente, organização de informações, análise de dados e utilização de sistemas ERP.
+
+O objetivo foi desenvolver uma aplicação funcional para praticar desenvolvimento full stack, regras de negócio, autenticação e segurança básica.
+
+---
+
+## Funcionalidades
+
+- Login e encerramento de sessão
+- Cadastro, edição e exclusão de clientes
+- Registro, edição e exclusão de atendimentos
+- Associação de atendimentos aos clientes
+- Classificação por prioridade e status
+- Dashboard com indicadores operacionais
+- Validação de campos obrigatórios
+- Rotas protegidas para usuários autenticados
+- Exclusão dos atendimentos relacionados ao remover um cliente
+
+---
 
 ## Tecnologias
 
 - JavaScript
 - Node.js
-- HTML
-- CSS
-- Persistencia em JSON local
+- HTML5
+- CSS3
+- API HTTP
+- Persistência de dados em JSON
+- Git e GitHub
 
-## Funcionalidades
+O servidor foi construído utilizando módulos nativos do Node.js, sem frameworks externos.
 
-- Login com sessao
-- Senha protegida com hash PBKDF2
-- Cadastro, edicao e exclusao de clientes
-- Registro de atendimentos
-- Filtros e indicadores
-- Dashboard com status dos atendimentos
-- Validacao de campos obrigatorios
-- Rotas protegidas
+---
 
-## Contexto do projeto
+## Segurança implementada
 
-Durante minhas experiencias profissionais, tive contato com sistemas ERP, planilhas, atendimento, controle de informacoes e analise de dados da rotina. Esse projeto foi criado para praticar desenvolvimento full stack usando um problema comum em empresas: organizar clientes, acompanhar atendimentos e visualizar indicadores.
+- Hash de senhas com PBKDF2
+- Comparação segura de senhas
+- Sessões com expiração
+- Cookies `HttpOnly` e `SameSite=Lax`
+- Validação e limitação dos dados recebidos
+- Proteção das rotas da API
+- Proteção contra acesso a arquivos fora da pasta pública
+- Cabeçalho `X-Content-Type-Options`
 
-## O que aprendi
+> Este é um projeto educacional. Para utilização em produção, seriam necessárias medidas adicionais de segurança, persistência e monitoramento.
 
-- Estruturar um projeto web com Node.js
-- Criar rotas de API para login, clientes, atendimentos e dashboard
-- Trabalhar com dados em JSON simulando uma base de dados
-- Criar telas com HTML, CSS e JavaScript
-- Aplicar validacao de dados antes de salvar informacoes
-- Pensar em seguranca basica, como hash de senha e sessao protegida
-- Organizar um README para explicar o projeto no GitHub
+---
 
-## Como rodar
+## Demonstração
+
+Acesse:
+
+```text
+https://sistema-clientes-atendimentos.onrender.com
+```
+
+### Credenciais de demonstração
+
+```text
+E-mail: admin@demo.com
+Senha: admin123
+```
+
+A aplicação utiliza dados de demonstração e pode levar alguns segundos para iniciar.
+
+---
+
+## Como executar localmente
+
+### Pré-requisito
+
+- Node.js instalado
+
+### Clone o repositório
 
 ```bash
-node server.js
+git clone https://github.com/olucassoares/sistema-clientes-atendimentos.git
+```
+
+### Entre na pasta
+
+```bash
+cd sistema-clientes-atendimentos
+```
+
+### Inicie a aplicação
+
+```bash
+npm start
 ```
 
 Acesse:
@@ -51,30 +110,79 @@ Acesse:
 http://localhost:3000
 ```
 
-Login demo:
+---
+
+## Estrutura do projeto
 
 ```text
-E-mail: admin@demo.com
-Senha: admin123
+sistema-clientes-atendimentos/
+├── data/
+│   └── db.json
+├── docs/
+│   └── preview.png
+├── public/
+│   ├── index.html
+│   ├── app.html
+│   ├── script.js
+│   └── style.css
+├── package.json
+├── server.js
+└── README.md
 ```
 
-## Proximas melhorias
+---
 
-- Migrar persistencia de JSON para PostgreSQL
-- Adicionar campo de responsavel pelo atendimento
-- Criar filtro por prioridade e status
+## Endpoints principais
+
+| Método | Endpoint | Descrição |
+|---|---|---|
+| POST | `/api/login` | Autentica o usuário |
+| POST | `/api/logout` | Encerra a sessão |
+| GET | `/api/me` | Retorna o usuário autenticado |
+| GET | `/api/dashboard` | Retorna os indicadores |
+| GET | `/api/clients` | Lista os clientes |
+| POST | `/api/clients` | Cadastra um cliente |
+| PUT | `/api/clients/:id` | Atualiza um cliente |
+| DELETE | `/api/clients/:id` | Exclui um cliente |
+| GET | `/api/tickets` | Lista os atendimentos |
+| POST | `/api/tickets` | Registra um atendimento |
+| PUT | `/api/tickets/:id` | Atualiza um atendimento |
+| DELETE | `/api/tickets/:id` | Exclui um atendimento |
+
+---
+
+## Aprendizados
+
+Durante o desenvolvimento deste projeto, pratiquei:
+
+- Estruturação de uma aplicação web com Node.js
+- Criação de rotas e operações CRUD
+- Autenticação e gerenciamento de sessões
+- Manipulação e persistência de dados
+- Validação de informações recebidas pela API
+- Integração entre front-end e back-end
+- Aplicação de regras de negócio
+- Publicação de uma aplicação web
+
+---
+
+## Próximas melhorias
+
+- Migrar a persistência para PostgreSQL
+- Separar rotas, serviços e controladores
+- Criar uma interface utilizando React
+- Adicionar paginação e pesquisa de clientes
+- Implementar níveis de acesso
 - Adicionar testes automatizados
-- Criar versao com React
-- Adicionar niveis de permissao
-- Publicar deploy
+- Documentar a API com Swagger
+- Utilizar variáveis de ambiente
+- Implementar tratamento centralizado de erros
+
+---
 
 ## Autor
 
-Lucas Soares
+**Lucas Soares**
 
-- LinkedIn: https://www.linkedin.com/in/olucassoares/
-- GitHub: https://github.com/olucassoares
-
-## Texto para LinkedIn
-
-Desenvolvi um sistema full stack para controle de clientes e atendimentos, com login, CRUD, dashboard e boas praticas basicas de seguranca. O projeto foi criado com JavaScript e Node.js, simulando uma rotina empresarial com cadastro de clientes, acompanhamento de atendimentos e indicadores operacionais.
+- GitHub: [olucassoares](https://github.com/olucassoares)
+- LinkedIn: [Lucas Soares](https://www.linkedin.com/in/olucassoares/)
