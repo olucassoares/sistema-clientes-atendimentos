@@ -1,18 +1,30 @@
 {
   "name": "sistema-clientes-atendimentos",
   "version": "1.0.0",
-  "description": "Sistema full stack para controle de clientes e atendimentos.",
+  "description": "Sistema web para gerenciamento de clientes e atendimentos, com autenticação, CRUD, filtros e dashboard.",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "check": "node --check server.js"
   },
   "keywords": [
-    "fullstack",
     "javascript",
-    "node",
+    "nodejs",
+    "fullstack",
     "crud",
-    "dashboard"
+    "authentication",
+    "dashboard",
+    "rest-api",
+    "web-application"
   ],
   "author": "Lucas Soares",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/olucassoares/sistema-clientes-atendimentos.git"
+  },
+  "homepage": "https://sistema-clientes-atendimentos.onrender.com",
+  "engines": {
+    "node": ">=18"
+  }
 }
